@@ -1,0 +1,107 @@
+{% extends 'tracker/driver/layout.html' %}
+
+{% block inner_title %}
+    Profile
+{% endblock inner_title %}
+
+
+{% block inner_content %}
+<form action="">
+    <div class="row mt-5">
+        <div class="col-6 p-3 mx-auto">
+            <div class="row mb-3">
+                <div class="col">
+                    {{form.fname.label_tag}}
+                    {{form.fname}}
+                </div>
+                <div class="col">
+                    {{form.lname.label_tag}}
+                    {{form.lname}}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    {{form.gender.label_tag}}
+                    {{form.gender}}
+                </div>
+                <div class="col">
+                    {{form.birth_date.label_tag}}
+                    {{form.birth_date}}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    {{form.email.label_tag}}
+                    {{form.email}}
+                </div>
+                <div class="col">
+                    {{form.contact_no.label_tag}}
+                    {{form.contact_no}}
+                </div>
+            </div>
+            
+            <div class="row mb-3">
+                <div class="col">
+                    {{form.liscence_no.label_tag}}
+                    {{form.liscence_no}}
+                </div>
+                <div class="col">
+                    {{form.address.label_tag}}
+                    {{form.address}}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    {{form.latitude.label_tag}}
+                    {{form.latitude}}
+                </div>
+                <div class="col">
+                    {{form.longitude.label_tag}}
+                    {{form.longitude}}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Save</button>
+        </div>
+        <div class="col-3 mx-auto">
+            <div class="justify-contend-center">
+                    <img src="{{driver.avatar.url}}" alt="" class="mb-2 mx-4" style="height:250px; width:250px; border-radius: 10px 10px;">
+                    {{form.avatar}}
+            </div>
+            <hr>
+           
+            <div class="mt-3 d-flex">
+                
+                   
+                   {% if dirver.online %}
+                   <div class="form-check form-switch mb-3 mx-3">
+                    <input class="form-check-input" type="checkbox" id="online_switch" checked>
+                    <label class="form-check-label" for="online_switch">Online</label>
+                  </div>
+                  {% else %}
+                  <div class="form-check form-switch mb-3 mx-3">
+                    <input class="form-check-input" type="checkbox" id="online_switch">
+                    <label class="form-check-label" for="online_switch">Offline</label>
+                  </div>
+                   {% endif %}
+                       
+                    
+                    {% if driver.active %}
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="active_check" checked>
+                        <label class="form-check-label" for="active_check">Active</label>
+                      </div>
+                    {% else %}
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="active_check">
+                        <label class="form-check-label" for="active_check">Deactivate</label>
+                      </div>
+                    {% endif %}
+                        
+                
+            </div>
+            
+        </div>
+        
+    </div>
+</form>
+{% endblock inner_content %}

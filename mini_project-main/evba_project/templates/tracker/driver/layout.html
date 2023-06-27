@@ -1,0 +1,46 @@
+{% extends 'base/layout.html' %}
+
+{% block title %}
+  Driver
+  
+  {% block inner_title %}
+    
+  {% endblock inner_title %}
+    
+{% endblock title %}
+  
+{% load static %}
+{% block css_content %}
+    <link rel="stylesheet" href="{% static 'css/myadmin.css' %}">
+{% endblock css_content %}
+{% block content %}
+<div class="shadow-lg p-3 mb-2 bg-body rounded container mt-5" id="main_content">
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link driver_top_link" href="{% url 'driver_home' %}" >Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link driver_top_link" href="{% url 'driver_helps' %}" >Helps</a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link driver_top_link" href="{% url 'driver_profile' %}"  >Profile</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link driver_top_link" href="{% url 'driver_logout' %}" >Logout</a>
+        </li>
+        
+      </ul>
+      <hr>
+      
+      {% block inner_content %}
+          
+      {% endblock inner_content %}
+        
+    <script>
+        
+    </script>
+</div>
+{% endblock content %}
+
+
+    

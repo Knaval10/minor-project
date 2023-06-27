@@ -1,0 +1,84 @@
+{% extends 'base/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Admin
+    
+    {% block inner_title %}
+        
+    {% endblock inner_title %}
+        
+{% endblock title %}
+    
+{% block css_content %}
+    <link rel="stylesheet" href="{% static 'css/myadmin.css' %}">
+{% endblock css_content %}
+
+{% block content %}
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 p-0" id="seller_sidenav" >
+                    
+                    <div id="image_container">
+                        
+                        <img src="{{request.session.avatar_url}}" class="img-fluid" >
+                    </div>
+                <div id="list_container">
+                    <ul >
+                        <li>
+                            <a href="{% url 'admin_dashboard' %}" class="link">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'admin_mechanic_index' %}" class="link">Mechanic Management</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'admin_driver_index' %}" class="link">Driver Management</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'staff_index' %}" class="link">Staff Management</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'admin_service_index' %}" class="link">Service Management</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'admin_help_index' %}" class="link">Help Management</a>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="col-10">
+                <ul class="nav justify-content-end shadow p-2 mt-2 mb-2 bg-body rounded ">
+                    <li class="nav-item">
+                        <a data-bs-toggle="collapse" href="#admin_notification_div" role="button" id="notification_btn" aria-expanded="false" aria-controls="collapseExample" class="nav-link"><span class="badge bg-danger" style="font-size:0.65em;" id="unseen"></span> Notifications <i class="fas fa-bell"></i></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'myadmin_logout' %}">Logout <i class="fas fa-sign-out-alt"></i> </a>
+                    </li>
+                   
+                  </ul>
+                  <div class="collapse" id="admin_notification_div" style=" position:absolute; right:60px; top:65px; z-index: 100;">
+                    <div class="card card-body p-1" style="width:250px; height: 300px; overflow-y: scroll;" >
+                        <div class="list-group p-1" id="notification_content">
+                        </div>
+                    </div>
+                  </div>
+                {% block inner_content %}
+                    
+                {% endblock inner_content %}
+                    
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}
+{% block js_content %}
+    <script src="{% static 'js/myadmin.js' %}"></script>
+{% endblock js_content %}
+    
+
+    
+    
+    

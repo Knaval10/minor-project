@@ -1,0 +1,65 @@
+{% extends 'myadmin/base/layout.html' %}
+{% block inner_title %}
+    Help Index
+{% endblock inner_title %}
+<!-- driver = models.ForeignKey(Driver,on_delete=models.CASCADE)
+service = models.ForeignKey(VehicleService,on_delete=models.CASCADE)
+problem_desc = models.TextField()
+mechanic = models.ForeignKey(Mechanic,on_delete=models.CASCADE)
+vehicle_image = models.ImageField(upload_to="vehicle_image/")
+accep -->
+{% block inner_content %}
+    <div class="shadow-lg p-3 mb-2 bg-body rounded" id="main_content">
+        
+        <hr>
+        <div class="row">
+            <div class="col-10 mx-auto">
+                <div style="height:700px; overflow-y: scroll;">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Sno.</th>
+                            <th scope="col">Driver</th>
+                            <th scope="col">Mechanic</th>
+                            <th scope="col">Date and Time</th>
+                            
+                            <th scope="col">Status</th>
+                            
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                          {% for help in helps %}
+                          <tr>
+                            <th scope="row">{{forloop.counter}}</th>
+                            <td>{{help.driver.fname}} {{help.driver.lname}}</td>
+                            <td>{{help.mechanic.fname}} {{help.mechanic.lname}}</td>
+                            <td>{{help.created_at}}</td>
+                           
+                            <td>
+                              
+                              {% if help.accept%}
+                              <span class="badge bg-success">
+                                accept
+                              </span>
+                              {% else %}
+                              <span class="badge bg-warning">
+                                cancel
+                              </span>
+                              {% endif %}
+                              
+                                
+                            </td>
+                            
+                          </tr>
+                          {% endfor %}
+                            
+                        
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock inner_content %}
+    

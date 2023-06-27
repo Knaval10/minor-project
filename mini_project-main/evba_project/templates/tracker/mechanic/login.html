@@ -1,0 +1,44 @@
+{% extends 'base/layout.html' %}
+
+{% load static %}
+{% block css_content %}
+    <link rel="stylesheet" href="{% static 'css/myadmin.css' %}">
+{% endblock css_content %}
+{% block content %}
+<div class="shadow-lg p-3 mb-2 bg-body rounded container mt-5" id="main_content">
+    <div class="row mt-5 py-5">
+        <div class="col-4 mx-auto border p-2">
+            <h3 class="p-2 border text-center">Mechanic Login Here</h3>
+            
+            {% for message in messages %}
+
+                {% if message.tags == "error" %}
+                    <div class=" alert alert-danger">
+                        {{message}}
+                    </div>
+                {% else %}
+                    <div class="alert alert-info">
+                        {{message}}
+                    </div>
+                {% endif %}
+                    
+            {% endfor %}
+                
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_email">Email</label>
+                    <input type="email" name="email" id="id_email" class="form-control" placeholder="enter email id" required>
+                </div>
+                <div class="mb-3">
+                    <label for="id_password">Password</label>
+                    <input type="password" name="password" id="id_password" class="form-control" placeholder="password" required>
+                </div>
+                <button type="submit" class="btn btn-info text-light">Login</button>
+            </form>
+            <hr>
+            <a href="{% url 'mechanic_signup' %}">Signup here</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

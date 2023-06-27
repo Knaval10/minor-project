@@ -1,0 +1,36 @@
+{% extends 'myadmin/base/layout.html' %}
+
+{% block inner_title %}
+    Service Index
+{% endblock inner_title %}
+
+{% block inner_content %}
+<div class="shadow-lg p-3 mb-2 bg-body rounded" id="main_content">
+    
+    <div>
+        <a href="{% url 'admin_service_add' %}" class="btn btn-info btn-sm text-light">Add Services</a>
+    </div>
+    <hr>
+    <div>
+        <div class="row p-3">
+            
+            {% for service in services %}
+            <div class="col-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{service.image.url}}" class="card-img-top" alt="..." height="250">
+                    <div class="card-body">
+                      <h5 class="card-title">{{service.name}}</h5>
+                     
+                    </div>
+                    <div class="card-footer p-1">
+                        <a href="{% url 'admin_service_edit' service.serviceId %}" class="btn btn-sm btn-outline-primary">edit</a>
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+                
+        </div>
+    </div>
+</div>
+{% endblock inner_content %}
+    

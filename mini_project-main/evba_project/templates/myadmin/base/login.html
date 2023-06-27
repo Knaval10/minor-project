@@ -1,0 +1,46 @@
+{% extends 'base/layout.html' %}
+
+
+
+{% block title %}
+   MyAdmin Login
+{% endblock title %}
+    
+    
+{% block content %}
+    <div class="container mt-5 py-5">
+        <div class="row">
+            <div class="col-4 mx-auto">
+                <h4 class="text-center p-2 border">Admin Login Here</h4>
+                
+                {% for message in messages %}
+                    
+                    {% if message.tags == "error" %}
+                        <div class="alert alert-danger">
+                            {{message}}
+                        </div>
+                    {% else %}
+                        <div class="alert alert-info">
+                            {{message}}
+                        </div>
+                    {% endif %}
+                        
+                    
+                {% endfor %}
+                    
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="id_email">Email Id</label>
+                        <input type="email" name="email" id="id_email" class="form-control" placeholder="Enter Email Id" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_password">Password</label>
+                        <input type="password" name="password" id="id_password" class="form-control" placeholder="Enter Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-info text-light">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

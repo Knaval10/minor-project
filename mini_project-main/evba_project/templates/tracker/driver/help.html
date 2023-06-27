@@ -1,0 +1,37 @@
+{% extends 'tracker/driver/layout.html' %}
+{% load static %}
+{% block inner_title %}
+Index
+{% endblock inner_title %}
+
+
+{% block inner_content %}
+
+ <div style="height:700px; overflow-y:scroll;">
+ <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Driver</th>
+      <th scope="col">Service</th>
+      <th scope="col">Date And Time</th>
+      <th  scope="col">Action </th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for help in helps %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{help.driver}}</td>
+      <td>{{help.service}}</td>
+      <td>{{help.created_at}}</td>
+      <td>View</td>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
+ </div>
+
+{% endblock inner_content %}

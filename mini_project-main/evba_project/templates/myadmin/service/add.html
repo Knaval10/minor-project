@@ -1,0 +1,39 @@
+{% extends 'myadmin/base/layout.html' %}
+
+{% block inner_title %}
+    Add Service
+{% endblock inner_title %}
+
+{% block inner_content %}
+<div class="shadow-lg p-3 mb-2 bg-body rounded" id="main_content">
+    <div>
+        <a href="{% url 'admin_service_index' %}" class="btn btn-info btn-sm text-light">Back</a>
+    </div>
+    <hr>
+    <div class="row mt-5">
+        <div class="col-4 mx-auto">
+            <h4 class="p-2 border text-center">Add New Service</h4>
+            
+            {% for message in messages %}
+                <div class="alert alert-info">
+                    {{message}}
+                </div>
+                
+            {% endfor %}
+                
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="mb-3">
+                        {{field.label_tag}}
+                        {{field}}
+                    </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-info">Save</button>
+                    
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock inner_content %}
+    

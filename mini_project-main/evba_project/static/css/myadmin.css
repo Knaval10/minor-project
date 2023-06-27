@@ -1,0 +1,54 @@
+#seller_sidenav{
+    position: relative;
+    height: 100vh;
+    background-color: #e7e4e4e8;
+    border: 2px solid #f8f6f6;
+    box-shadow: 5px 10px 8px #f5f3f3;
+}
+
+#image_container{
+    position:absolute;
+    top: 10px;
+    left:50px;
+    
+}
+#image_container img{
+    height: 170px;
+    width: 170px;
+    border-radius: 50% 50%;
+}
+
+#list_container ul {
+    position: absolute;
+    top: 230px;
+    list-style: none;
+    width:100%;
+    left: 0px;
+    padding:5px;
+
+}
+#list_container ul li{
+    margin: 6px 0px;
+    border-bottom:2px solid #c9c2c2;
+    padding:5px;
+
+}
+#list_container ul li a{
+    text-decoration: none;
+    color:rgba(80, 78, 78, 0.938);
+    line-height:20px;
+    display:block;
+    padding:10px;
+    border-radius: 10px;
+    
+}
+#list_container ul li a:hover{
+    background-color: #b6adaddc;
+    color:rgb(249, 253, 253);
+}
+#main_content{
+    height:90vh;
+}
+
+
+

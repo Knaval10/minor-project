@@ -1,0 +1,80 @@
+{% extends 'tracker/driver/layout.html' %}
+{% load static %}
+{% block inner_title %}
+Index
+{% endblock inner_title %}
+
+
+{% block inner_content %}
+<div>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-outline-primary btn-sm" id="show_btn">
+        send Help
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Send Help Notification</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="" id="helpForm">
+                    <div class="modal-body">
+
+                        {% for field in form %}
+                        <div class="mb-3">
+                            {{field.label_tag}}
+                            {{field}}
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                    <div class="modal-footer" id="modal_footer">
+
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-5">
+            <table class="table" id="mechanic_table">
+                <thead>
+                    <tr>
+                        <th scope="col">Sno.</th>
+                        <th scope="col">Mechanic Name</th>
+                        <th scope="col">Distance (meter)</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-7">
+            
+            <div id="map_container">
+
+                
+                
+            </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div>
+
+</div>
+{% endblock inner_content %}
+{% block js_content %}
+    <script src="{% static 'js/driver.js' %}"></script>
+{% endblock js_content %}
